@@ -1,0 +1,22 @@
+{
+  "name": "@fsalinas26/safewalkscu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ReviewComp.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsalinas26/SafeWalkSCU.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fsalinas26/SafeWalkSCU/issues"
+  },
+  "homepage": "https://github.com/fsalinas26/SafeWalkSCU#readme"
+}

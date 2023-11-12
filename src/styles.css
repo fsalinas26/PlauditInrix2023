@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#inputID::placeholder {
+    color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+};
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.ping {
+    background: #fff;
+    border-radius: 50%;
+    border: 50px solid #222;
+    width: 20px;
+    height: 20px;
+    animation: load 1.5s ease-out infinite;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeUpAnimation {
+  animation: fadeUp 0.5s ease-in-out;
+}
+
+@keyframes load {
+    0% {
+        background: #fff;
+        border: 0px solid #fff;
+   }
+    50% {
+        background: #fff;
+        border: 100px solid #222;
+   }
+    100% {
+        background: #fff;
+        border: 0px solid #222;
+   }
+}
+
+.right-box {
+    width: 30%;
+    position: absolute; /* or 'fixed', depending on your need */
+    right: 0;
+    top: 0; /* Adjust as needed */
+  }
+  
+
+  nav {
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    background-color: none;
+    color: white;
+    min-height: 30vh;
+    padding: 10px;
+  }
+  
+  .nav-logo {
+    margin-right: auto; /* pushes the nav-links to the right */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin-left: 20px; /* spacing between links */
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .nav-links a:hover {
+    background-color: #555;
+  }
+  
