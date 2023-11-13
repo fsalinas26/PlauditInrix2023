@@ -3,8 +3,7 @@ import React from "react";
 import axios from "axios";
 import "./styles.css";
 import {getMapStyles} from './styles';
-import "./api";
-import NavBar from './NavBar'
+import NavBar from './navbar'
 import { 
   Image,
   Box,
@@ -31,8 +30,7 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 import { useRef, useState } from "react";
-import { get_walkers, request_walker,addRequest, wait } from "./api";
-
+import Config from './config.json'
 
 
 
@@ -52,7 +50,7 @@ var component;
 function App() {
   
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: config.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: Config.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ["places"],
   });
 
@@ -69,25 +67,6 @@ function App() {
 
   if (!isLoaded) {
     return <SkeletonText />;
-  }
-  async function calculateRoute() {
-    // originRef.current.value = center;
-    // destiantionRef.current.value = {lat:37.3541,lng:-121.9552};
-    // if (originRef.current.value === "" || destiantionRef.current.value === "") {
-    //   return;
-    // }
-    const santa_clara_coords = {lat:37.3541,lng:-121.9552};
-    // eslint-disable-next-line no-undef
-    const directionsService = new google.maps.DirectionsService();
-    const results = await directionsService.route({
-      origin: center,// originRef.current.value,
-      destination: santa_clara_coords,
-      // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.WALKING,
-    });
-    setDirectionsResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
   }
 
   function clearRoute() {

@@ -4,65 +4,14 @@ import React, { useState, useEffect,useRef } from 'react';
 // You can install it using `npm install @fortawesome/react-fontawesome`
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-
+import fetchData from './FetchData'
+import { add } from 'lodash';
 // Function to fetch data from the endpoint
 
 function SearchBar() {
 
 const addressref = useRef(null);
 const businessTyperef = useRef(null);
-
-const fetchData = async () => {
-    const coords_ = {
-        command:"coords",
-        address:`${addressref.current.value}`
-    }
-    return new Promise(async(resolve,reject)=>{
-        const res = await axios.get('http://localhost:8801/post',{params:coords_}).then(async data=>{
-
-        const coords____ = data;
-        const params ={
-            address:`${addressref.current.value}`,
-            businesstype:`${businessTyperef.current.value}`
-        }
-        const image_ = {
-            command:"image",
-            lat:coords____.latitude,
-            long:coords____.longitude
-        }
-
-        const competition_ = {
-            command:"competition",
-            lat:coords____.latitude,
-            long:coords____.longitude,
-            keyword:`${businessTyperef.current.value}`
-        }
-        const attraction_ = {
-            command:"attraction",
-            lat:coords____.latitude,
-            long:coords____.longitude
-        }
-        const parking_ = {
-            command:"parking",
-            lat:coords____.latitude,
-            long:coords____.longitude
-        }
-
-        const coords_response = await axios.get('http://localhost:8801/post',{params:coords_});
-        document.getElementById("coords_response").textContent = `Coordinates ${coords_response.data}`;
-        //const streetview_response = await axios.get('http://localhost:8801/post',{params:image_})
-        const competition_response = await axios.get('http://localhost:8801/post',{params:competition_});
-        document.getElementById("competition_response").textContent = `Nearby ${businessTyperef.current.value}'s: ${competition_response.data}`;
-        const attraction_response = await axios.get('http://localhost:8801/post',{params:attraction_});
-        document.getElementById("attraction_response").textContent = `Volume of people in the area ${attraction_response.data}`;
-        const parking_score = await axios.get('http://localhost:8801/post',{params:parking_});
-        let responseGPT = competition_response;
-        document.getElementById("ChatGPT_Response").textContent = responseGPT;
-        return responseGPT;
-    })
-    })
-}
 
   const searchBarStyle = {
     display: 'flex',
@@ -124,7 +73,8 @@ const fetchData = async () => {
         style={inputStyle}
       />
       {/* Search button */}
-      <button style={buttonStyle} onClick={fetchData}>SEARCH</button>
+      <button style={buttonStyle} onClick={fetchData(addressref,businessTyperef)}>SEARCH</button>
+
     </div>
   );
 }

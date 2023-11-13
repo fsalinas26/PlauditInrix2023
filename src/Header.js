@@ -20,7 +20,7 @@ function Header() {
   };
 
   const logoStyle = {
-    height: '50px', // Adjust the size as needed
+    height: '50px',
     cursor: 'pointer'
   };
 

@@ -13,14 +13,12 @@ import {
   VStack,
   Textarea,
 } from "@chakra-ui/react";
-import RatingBlock from '../ReviewComp';
 
 
 const RightAlignedBox = ({destiantionRef}) => {
   const [loaded, setLoaded] = useState(false);
   
   useEffect(() => {
-    // Set the loaded state to true once the component mounts
     setLoaded(true);
   }, []);
   return (
@@ -66,11 +64,11 @@ const RightAlignedBox = ({destiantionRef}) => {
            
             <Text
             >
+              <div text-align="center" id="competition_response"></div>
+              <div text-align="center" id="parking_score"></div>
+              <br></br>
               <div id="ChatGPT_Response"></div>
-              <div id="coords_response"></div>
-              <div id="competition_response"></div>
-              <div id="attraction_response"></div>
-              <div id="parking_score"></div>
+
             </Text>
             </Box>
  
